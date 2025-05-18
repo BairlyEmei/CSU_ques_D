@@ -1,0 +1,21 @@
+processed_Q4_data3.xlsx
+Fitting 5 folds for each of 108 candidates, totalling 540 fits
+最佳参数: {'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 10, 'n_estimators': 100}
+===============================
+模型评估指标：
+准确率: 0.8750
+精确率: 0.9083
+召回率: 0.8667
+F1分数: 0.8773
+AUC值: 0.9911
+
+processed_Q4_data.xlsx
+Fitting 5 folds for each of 108 candidates, totalling 540 fits
+最佳参数: {'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 5, 'n_estimators': 100}
+=============================
+模型评估指标：
+准确率: 0.8750
+精确率: 0.9286
+召回率: 0.8333
+F1分数: 0.8333
+AUC值: 0.9685
