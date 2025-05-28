@@ -164,7 +164,7 @@ if __name__ == "__main__":
     os.makedirs("images/Q4", exist_ok=True)
 
     # 1. 数据加载与预处理
-    df = load_and_preprocess(data_path = "data/enhanced_processed_Q1_data.xlsx")
+    df = load_and_preprocess(data_path = "data/enhanced_processed_Q2_data.xlsx")
 
     X = df.drop(['people','gene_from'], axis=1)
     y = df['people']
@@ -195,10 +195,10 @@ if __name__ == "__main__":
 
     # 6. 可视化输出
     # 特征重要性图
-    plot_feature_importance(rf_model, X.columns.tolist(), "images/Q1/feature_importance.png")
+    plot_feature_importance(rf_model, X.columns.tolist(), "images/Q2/feature_importance.png")
 
     # ROC曲线
-    plot_roc_curve(y_test, y_proba, "images/Q1/roc_curve.png")
+    plot_roc_curve(y_test, y_proba, "images/Q2/roc_curve.png")
 
     # 混淆矩阵
     cm = confusion_matrix(y_test, y_pred)
@@ -206,6 +206,6 @@ if __name__ == "__main__":
                                   display_labels=rf_model.classes_)
     disp.plot(cmap=plt.cm.Blues)
     plt.title("混淆矩阵")
-    plt.savefig("images/Q1/confusion_matrix.png", dpi=300)
+    plt.savefig("images/Q2/confusion_matrix.png", dpi=300)
     plt.show()
     plt.close()
