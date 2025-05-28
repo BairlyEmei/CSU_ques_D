@@ -1,32 +1,38 @@
-## 介绍
-这是一个用于csu数模校赛的项目~~
+# 介绍
+这是一个用于csu2025数模校赛的项目~~
 
-语言: python, R
+队伍：渐变的金黄色宇宙队  
+语言: python, R  
+题目：[D题：法医物证多人身份鉴定问题.docx](论文材料/D题：法医物证多人身份鉴定问题.docx)
 ## 问题1
+具体思路见[quesD_try.pdf](论文材料/quesD_try.pdf)
 ### 特征工程
 1. 目标特征：
    - 混合人数
    - 混合比例
 2. 每个基因座特征（*16）：
-   ```python
+   ```R
    enhanced_char <- c("gene_sum","height_sum","height_mean","height_std","height_max",
                       "height_cv", "skewness", "kurtosis", "effective_peaks",
                       "triplet_ratio", "phr", "low_phr", "high_freq_cluster",
                       "height_main_ratio", "peak_entropy")
+   ```
 3. 全局特征
-   ```python
+   ```R
    global_features <- c("sample_file","gene_from","people","proportion", "gene_total","height_total",
                         "cv_std","prop_max", "prop_min", "prop_sd", "prop_entropy",
                         "avg_gene_sum", "sd_effective_peaks", "avg_phr", "var_phr",
                         "total_low_phr", "avg_main_ratio")
+   ```
 4. 动态噪声过滤：结合最大峰高和总峰高
-   ```python
+   ```R
     valid_heights <- heights[!is.na(heights)]
     if (length(valid_heights) > 0) {
       total_height <- sum(valid_heights)
       threshold <- max(0.1*max(valid_heights), 0.01*total_height)
       valid_heights <- valid_heights[valid_heights > threshold]
     }
+    ```
 5. 数据预处理代码:[data_preprocessing_new.R](data_preprocessing_new.R)
 ### 运行结果
 1. 数据集：[enhanced_processed_Q1_data.xlsx](data/enhanced_processed_Q1_data.xlsx)，八二分
@@ -45,7 +51,7 @@
    ![混淆矩阵](images/Q1/confusion_matrix.png)
 
 ## 问题2
-对样本i进行遍历：
+具体思路见[第二问建模2.pdf](论文材料/第二问建模2.pdf)
 ### 判断人数
 数据预处理同上
 1. 数据集：[enhanced_processed_Q1_data.xlsx](data/enhanced_processed_Q1_data.xlsx)
