@@ -29,13 +29,7 @@ def load_and_preprocess(data_path):
     # 读取Excel文件
     df = pd.read_excel(data_path)
 
-    #选取列
-    df = df.drop(columns=['sample_file', 'proportion'])
-
     # 处理缺失值
-    # 方法1：用列均值填充
-    # df = df.fillna(df.mean())
-    # 方法2：用0填充（适合你的高度数据）
     df = df.fillna(0)
     return df
 
@@ -166,7 +160,7 @@ if __name__ == "__main__":
     # 1. 数据加载与预处理
     df = load_and_preprocess(data_path = "data/enhanced_processed_Q2_data.xlsx")
 
-    X = df.drop(['people','gene_from'], axis=1)
+    X = df.drop(['people', 'gene_from','sample_file', 'proportion'], axis=1)
     y = df['people']
 
     # 2. 划分训练集/测试集
