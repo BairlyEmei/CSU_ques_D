@@ -47,7 +47,7 @@ def train_random_forest(X_train, y_train):
         class_weight='balanced',
         random_state=42,
         bootstrap=True,
-        oob_score=True  # 新增：使用袋外样本评估
+        oob_score=True
     )
 
     # 扩展参数网格
@@ -66,7 +66,7 @@ def train_random_forest(X_train, y_train):
         cv=5,
         scoring='f1_macro',
         n_jobs=-1,
-        verbose=0  # 增加详细程度
+        verbose=0
     )
 
     # 执行网格搜索
